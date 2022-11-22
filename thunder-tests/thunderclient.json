@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "2354049f-b066-4c0e-b7bf-8492b784a94f",
+    "colId": "1248a9ea-5e66-4d9c-8544-be71c12b243e",
+    "containerId": "",
+    "name": "home",
+    "url": "{{API}}/admin",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-11-20T18:25:09.957Z",
+    "modified": "2022-11-20T18:25:25.139Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "318677cf-48ef-4c5e-963a-74d16fd286ca",
+    "colId": "1248a9ea-5e66-4d9c-8544-be71c12b243e",
+    "containerId": "",
+    "name": "start",
+    "url": "{{API}}/admin/start",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-11-20T18:32:51.084Z",
+    "modified": "2022-11-20T18:33:10.213Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
