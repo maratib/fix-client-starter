@@ -1,4 +1,4 @@
-package com.jp.fix.server;
+package com.jp.fix.client;
 
 import org.springframework.stereotype.Component;
 
@@ -7,7 +7,7 @@ import quickfix.*;
 
 @Component
 @Slf4j
-public class ServerApplication implements Application {
+public class ClientApplication implements Application {
 
     private static String LOGGED_IN = "Y";
 
@@ -28,24 +28,25 @@ public class ServerApplication implements Application {
 
     @Override
     public void toAdmin(Message msg, SessionID sessionID) {
-        log.warn("toAdmin: Message={}, SessionId={}", msg, sessionID);
+        // msg.setString(141, LOGGED_IN);
+        // log.warn("toAdmin: {}, {}", msg, sessionID);
     }
 
     @Override
     public void fromAdmin(Message msg, SessionID sessionID)
             throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
-        log.warn("fromAdmin: Message={}, SessionId={}", msg, sessionID);
+        // log.warn("fromAdmin: {}, {}", msg, sessionID);
     }
 
     @Override
     public void toApp(Message msg, SessionID sessionID) throws DoNotSend {
-        log.warn("toApp: Message={}, SessionId={}", msg, sessionID);
+        log.warn("toApp: {}, {}", msg, sessionID);
     }
 
     @Override
     public void fromApp(Message msg, SessionID sessionID)
             throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
-        log.warn("fromApp: Message={}, SessionId={}", msg, sessionID);
+        log.warn("fromApp: {}, {}", msg, sessionID);
     }
 
 }

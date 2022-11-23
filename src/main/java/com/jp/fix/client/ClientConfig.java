@@ -1,4 +1,4 @@
-package com.jp.fix.server;
+package com.jp.fix.client;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,16 +12,16 @@ import quickfix.*;
 
 @Configuration
 @Slf4j
-public class ServerConfig {
-    private static final String configFile = "config/fix/server.cfg";
+public class ClientConfig {
+    private static final String configFile = "config/fix/client.cfg";
 
     @Autowired
-    ServerApplication application;
+    ClientApplication application;
 
     @Bean
-    public ThreadedSocketAcceptor threadedSocketAcceptor() {
+    public ThreadedSocketInitiator threadedSocketInitiator() {
         log.info("going through RNTConfig");
-        ThreadedSocketAcceptor threadedSocketAcceptor = null;
+        ThreadedSocketInitiator threadedSocketInitiator = null;
 
         try {
             SessionSettings settings = new SessionSettings(new FileInputStream(configFile));
@@ -29,16 +29,15 @@ public class ServerConfig {
             MessageStoreFactory storeFactory = new FileStoreFactory(settings);
             LogFactory logFactory = new FileLogFactory(settings);
             MessageFactory messageFactory = new DefaultMessageFactory();
-            threadedSocketAcceptor = new ThreadedSocketAcceptor(
+            threadedSocketInitiator = new ThreadedSocketInitiator(
                     application, storeFactory, settings, logFactory,
                     messageFactory);
-            threadedSocketAcceptor.start();
         } catch (ConfigError configError) {
             configError.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        return threadedSocketAcceptor;
+        return threadedSocketInitiator;
     }
 }

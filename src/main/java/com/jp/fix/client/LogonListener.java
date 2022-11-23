@@ -1,4 +1,4 @@
-package com.jp.fix.server;
+package com.jp.fix.client;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class LogonListener implements ApplicationListener<ContextRefreshedEvent>
     private ThreadedSocketInitiator threadedSocketInitiator;
 
     @Autowired
-    private ServerApplication application;
+    private ClientApplication application;
 
     private boolean initiatorStarted = false;
 
