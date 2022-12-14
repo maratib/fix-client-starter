@@ -26,7 +26,6 @@ public class AdminController {
         header.setField(new MsgType("D"));
         // message.setField(new OrigClOrdID("123"));
         // message.setField(new ClOrdID("321"));
-        // message.setField(new Symbol("LNUX"));
         // message.setField(new Side(Side.BUY));
         message.setField(new Text("Cancel My Order!"));
 

@@ -45,6 +45,7 @@ public class LogonListener implements ApplicationListener<ContextRefreshedEvent>
     }
 
     private void logon() {
+        System.out.println("Trying to logon");
         if (threadedSocketInitiator.getSessions() != null && threadedSocketInitiator.getSessions().size() > 0) {
             for (SessionID sessionID : threadedSocketInitiator.getSessions()) {
                 log.info("SessionID : {}", sessionID);
@@ -59,5 +60,6 @@ public class LogonListener implements ApplicationListener<ContextRefreshedEvent>
     public void clientStatus() {
         log.info("Client Status | Logged on: {}. Current Time: {}", threadedSocketInitiator.isLoggedOn(),
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+
     }
 }

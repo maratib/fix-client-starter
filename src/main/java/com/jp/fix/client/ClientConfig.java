@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import quickfix.*;
+import quickfix.field.ApplVerID;
 
 @Configuration
 @Slf4j
@@ -28,7 +29,7 @@ public class ClientConfig {
             // System.out.println("SETTINGS : " + settings);
             MessageStoreFactory storeFactory = new FileStoreFactory(settings);
             LogFactory logFactory = new FileLogFactory(settings);
-            MessageFactory messageFactory = new DefaultMessageFactory();
+            MessageFactory messageFactory = new DefaultMessageFactory(ApplVerID.FIX50SP2);
             threadedSocketInitiator = new ThreadedSocketInitiator(
                     application, storeFactory, settings, logFactory,
                     messageFactory);
